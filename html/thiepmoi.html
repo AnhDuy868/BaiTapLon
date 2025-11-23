@@ -17,326 +17,372 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ThiệpOnline</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Sản Phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Liên Hệ</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên Hệ</a>
+                    </li>
                 </ul>
-                <div class="d-flex align-items-center gap-3">
-                    <span id="userInfo" class="text-success fw-bold"></span>
-                    <button class="btn btn-outline-primary" id="authBtn">Đăng Nhập</button>
-                    <button class="btn btn-outline-primary position-relative" id="cartBtn">
-                        Giỏ Hàng <span id="cartCount" class="cart-count">0</span>
-                    </button>
+                <div class="position-relative">
+                    <button class="btn btn-outline-primary" id="cartBtn">Giỏ Hàng <span id="cartCount" class="cart-count">0</span></button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Các phần cũ giữ nguyên: Carousel, Products, Contact... -->
-    <!-- (Giữ nguyên toàn bộ phần từ <section id="home"> đến </section> của Contact như cũ) -->
+    <!-- Carousel cho thiệp nổi bật -->
+    <section id="home">
+        <div id="carouselExample" class="carousel slide mt-4">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center">
+                        <img src="../img/noibat1.png" class="img-fluid" alt="Thiệp Nổi Bật 1">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                        <img src="../img/noibat2.jpg" class="img-fluid" alt="Thiệp Nổi Bật 2">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                        <img src="../img/noibat3.jpg" class="img-fluid" alt="Thiệp Nổi Bật 3">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </section>
+    <!-- Danh sách sản phẩm -->
+    <section id="products" class="container mt-5">
+        <h2 class="text-center mb-4">Sản Phẩm Thiệp</h2>
+        <div class="mb-4">
+            <button class="btn btn-outline-primary filter-btn" data-category="all">Tất Cả</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="birthday">Sinh Nhật</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="christmas">Giáng Sinh</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="valentine">Valentine</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="newyear">Năm Mới</button>
+        </div>
+        <div class="row" id="productList">
+            <!-- Sản phẩm sẽ được thêm động bằng JS -->
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination" id="pagination">
+                <!-- Phân trang sẽ được thêm động bằng JS -->
+            </ul>
+        </nav>
+    </section>
 
-    <!-- Modal Đăng ký / Đăng nhập -->
-    <div class="modal fade" id="authModal" tabindex="-1">
+    <!-- Liên hệ -->
+    <section id="contact" class="container mt-5">
+        <h2 class="text-center mb-4">Liên Hệ</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Gửi Tin Nhắn</h4>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tin Nhắn</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Nhập tin nhắn của bạn" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Gửi</button>
+                </form>
+            </div>
+            <div class="col-md-6 contact-info">
+                <h4>Thông Tin Liên Hệ</h4>
+                <p><strong>Địa chỉ:</strong> 123 Đường Thiệp Đẹp, Quận 1, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> contact@thieponline.com</p>
+                <p><strong>Số điện thoại:</strong> (028) 1234-5678</p>
+                <p><strong>Thời gian làm việc:</strong> 9:00 - 17:00, Thứ Hai - Thứ Bảy</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal chi tiết sản phẩm -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="authModalTitle">Đăng Nhập</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="productModalLabel">Chi Tiết Sản Phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="authForm">
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="authEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mật khẩu</label>
-                            <input type="password" class="form-control" id="authPassword" required>
-                        </div>
-                        <div id="confirmPasswordGroup" class="mb-3" style="display:none;">
-                            <label class="form-label">Nhập lại mật khẩu</label>
-                            <input type="password" class="form-control" id="authConfirmPassword">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="authSubmit">Đăng Nhập</button>
-                    </form>
-                    <div class="mt-3 text-center">
-                        <small>Bạn chưa có tài khoản? <a href="#" id="switchToRegister">Đăng ký ngay</a></small>
-                        <br>
-                        <small id="backToLogin" style="display:none;"><a href="#">Quay lại đăng nhập</a></small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Thanh toán -->
-    <div class="modal fade" id="checkoutModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Thanh Toán</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h6>Thông tin đơn hàng</h6>
-                    <ul id="checkoutItems" class="list-group mb-4"></ul>
-                    <p class="fw-bold">Tổng tiền: <span id="checkoutTotal">0</span> VND</p>
-
-                    <h6>Phương thức thanh toán</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
-                        <label class="form-check-label" for="cod">Thanh toán khi nhận hàng (COD)</label>
-                    </div>
-                    <div class="form-check mb-4">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="bank" value="bank">
-                        <label class="form-check-label" for="bank">Chuyển khoản ngân hàng</label>
-                    </div>
-
-                    <div id="bankInfo" style="display:none;" class="alert alert-info">
-                        <strong>Thông tin chuyển khoản:</strong><br>
-                        Ngân hàng: Vietcombank<br>
-                        Chủ tài khoản: NGUYEN VAN A<br>
-                        Số tài khoản: 1234567890<br>
-                        Nội dung: [Họ tên] + [Số điện thoại]
-                    </div>
-
-                    <form id="checkoutForm">
-                        <div class="mb-3">
-                            <label>Họ và tên</label>
-                            <input type="text" class="form-control" id="checkoutName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Số điện thoại</label>
-                            <input type="tel" class="form-control" id="checkoutPhone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Địa chỉ giao hàng</label>
-                            <textarea class="form-control" id="checkoutAddress" rows="3" required></textarea>
-                        </div>
-                    </form>
+                    <img id="modalImg" class="img-fluid mb-3" alt="Sản phẩm">
+                    <h5 id="modalTitle"></h5>
+                    <p id="modalDescription"></p>
+                    <p id="modalPrice" class="fw-bold"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-success" id="confirmCheckout">Xác Nhận Đơn Hàng</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="addToCartModal">Thêm Vào Giỏ</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Các modal cũ: productModal, cartModal vẫn giữ nguyên (copy từ code cũ) -->
-    <!-- ... (giữ nguyên modal sản phẩm và giỏ hàng như bạn đã có) ... -->
+    <!-- Modal giỏ hàng -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Giỏ Hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItems" class="list-group"></ul>
+                    <p class="mt-3 fw-bold">Tổng Tiền: <span id="totalPrice">0</span> VND</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap JS, Popper, jQuery -->
+    <!-- Bootstrap JS và Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <!-- Custom JS -->
     <script>
-        // ====================== DỮ LIỆU & BIẾN ======================
-        const products = [ /* giữ nguyên mảng products như cũ */ 
-            { id: 1, title: 'Thiệp Sinh Nhật Vui Vẻ', description: 'Thiệp sinh nhật với thiết kế rực rỡ.', price: 50000, img: '../img/sinhnhat1.png', category: 'birthday' },
-            { id: 2, title: 'Thiệp Sinh Nhật Dễ Thương', price: 55000, img: '../img/sinhnhat2.webp', category: 'birthday' },
-            { id: 3, title: 'Thiệp Giáng Sinh Tuyết', price: 60000, img: '../img/giangsinh.png', category: 'christmas' },
-            { id: 4, title: 'Thiệp Giáng Sinh Cây Thông', price: 65000, img: '../img/caythong.png', category: 'christmas' },
-            { id: 5, title: 'Thiệp Valentine Lãng Mạn', price: 70000, img: '../img/langman.png', category: 'valentine' },
-            { id: 6, title: 'Thiệp Valentine Trái Tim', price: 75000, img: '../img/traitim.png', category: 'valentine' },
-            { id: 7, title: 'Thiệp Năm Mới May Mắn', price: 55000, img: '../img/mayman.png', category: 'newyear' },
-            { id: 8, title: 'Thiệp Năm Mới Pháo Hoa', price: 60000, img: '../img/phaohoa.png', category: 'newyear' }
-        ];
+        // Dữ liệu sản phẩm mẫu với danh mục
+        const products = [{
+            id: 1,
+            title: 'Thiệp Sinh Nhật Vui Vẻ',
+            description: 'Thiệp sinh nhật với thiết kế rực rỡ.',
+            price: 50000,
+            img: '../img/sinhnhat1.png',
+            category: 'birthday'
+        }, {
+            id: 2,
+            title: 'Thiệp Sinh Nhật Dễ Thương',
+            description: 'Thiệp sinh nhật đáng yêu.',
+            price: 55000,
+            img: '../img/sinhnhat2.webp',
+            category: 'birthday'
+        }, {
+            id: 3,
+            title: 'Thiệp Giáng Sinh Tuyết',
+            description: 'Thiệp Giáng Sinh ấm áp.',
+            price: 60000,
+            img: '../img/giangsinh.png',
+            category: 'christmas'
+        }, {
+            id: 4,
+            title: 'Thiệp Giáng Sinh Cây Thông',
+            description: 'Thiệp Giáng Sinh truyền thống.',
+            price: 65000,
+            img: '../img/caythong.png',
+            category: 'christmas'
+        }, {
+            id: 5,
+            title: 'Thiệp Valentine Lãng Mạn',
+            description: 'Thiệp tình yêu ngọt ngào.',
+            price: 70000,
+            img: '../img/langman.png',
+            category: 'valentine'
+        }, {
+            id: 6,
+            title: 'Thiệp Valentine Trái Tim',
+            description: 'Thiệp Valentine đậm chất yêu thương.',
+            price: 75000,
+            img: '../img/traitim.png',
+            category: 'valentine'
+        }, {
+            id: 7,
+            title: 'Thiệp Năm Mới May Mắn',
+            description: 'Thiệp chúc năm mới thịnh vượng.',
+            price: 55000,
+            img: '../img/mayman.png',
+            category: 'newyear'
+        }, {
+            id: 8,
+            title: 'Thiệp Năm Mới Pháo Hoa',
+            description: 'Thiệp năm mới rực rỡ.',
+            price: 60000,
+            img: '../img/phaohoa.png',
+            category: 'newyear'
+        }];
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+        let cart = [];
         const itemsPerPage = 4;
         let currentPage = 1;
         let currentCategory = 'all';
 
-        // ====================== HÀM CƠ BẢN ======================
-        function saveCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
+        // Hiển thị sản phẩm
+        function displayProducts(page = 1, category = 'all') {
+            const productList = $('#productList');
+            productList.empty();
+            let filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedProducts = filteredProducts.slice(start, end);
+
+            paginatedProducts.forEach(product => {
+                const card = `
+                <div class="col-md-3 mb-4">
+                    <div class="card product-card">
+                        <img src="${product.img}" class="card-img-top" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text">${product.price.toLocaleString()} VND</p>
+                            <button class="btn btn-primary viewDetails" data-id="${product.id}">Xem Chi Tiết</button>
+                            <button class="btn btn-success addToCart" data-id="${product.id}">Thêm Vào Giỏ</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+                productList.append(card);
+            });
+
+            displayPagination(filteredProducts.length, page);
         }
 
+        // Hiển thị phân trang
+        function displayPagination(totalItems, currentPage) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pagination = $('#pagination');
+            pagination.empty();
+
+            if (totalPages <= 1) return;
+
+            pagination.append(`
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage - 1}">Trước</a>
+            </li>
+        `);
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.append(`
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" data-page="${i}">${i}</a>
+                </li>
+            `);
+            }
+
+            pagination.append(`
+            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage + 1}">Sau</a>
+            </li>
+        `);
+        }
+
+        // Lọc theo danh mục
+        $('.filter-btn').click(function() {
+            currentCategory = $(this).data('category');
+            currentPage = 1;
+            $('.filter-btn').removeClass('active');
+            $(this).addClass('active');
+            displayProducts(currentPage, currentCategory);
+        });
+
+        // Chuyển trang
+        $(document).on('click', '.page-link', function(e) {
+            e.preventDefault();
+            const page = $(this).data('page');
+            if (page) {
+                currentPage = page;
+                displayProducts(currentPage, currentCategory);
+            }
+        });
+
+        // Hiển thị modal chi tiết sản phẩm
+        $(document).on('click', '.viewDetails', function() {
+            const id = $(this).data('id');
+            const product = products.find(p => p.id === id);
+            $('#modalImg').attr('src', product.img);
+            $('#modalTitle').text(product.title);
+            $('#modalDescription').text(product.description);
+            $('#modalPrice').text(product.price.toLocaleString() + ' VND');
+            $('#addToCartModal').data('id', id);
+            $('#productModal').modal('show');
+        });
+
+        // Thêm vào giỏ từ modal
+        $('#addToCartModal').click(function() {
+            const id = $(this).data('id');
+            addToCart(id);
+            $('#productModal').modal('hide');
+        });
+
+        // Thêm vào giỏ
+        $(document).on('click', '.addToCart', function() {
+            const id = $(this).data('id');
+            addToCart(id);
+        });
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCartCount();
+            alert('Đã thêm ' + product.title + ' vào giỏ hàng!');
+        }
+
+        // Cập nhật số lượng giỏ hàng
         function updateCartCount() {
             $('#cartCount').text(cart.length);
         }
 
-        function updateAuthUI() {
-            if (currentUser) {
-                $('#userInfo').text(`Xin chào, ${currentUser.name}`);
-                $('#authBtn').text('Đăng xuất').removeClass('btn-outline-primary').addClass('btn-outline-danger');
-            } else {
-                $('#userInfo').text('');
-                $('#authBtn').text('Đăng Nhập').removeClass('btn-outline-danger').addClass('btn-outline-primary');
-            }
-        }
-
-        // ====================== ĐĂNG KÝ / ĐĂNG NHẬP ======================
-        $('#authBtn').click(function () {
-            if (currentUser) {
-                if (confirm('Bạn có chắc muốn đăng xuất?')) {
-                    currentUser = null;
-                    localStorage.removeItem('currentUser');
-                    updateAuthUI();
-                }
-            } else {
-                $('#authModal').modal('show');
-            }
-        });
-
-        $('#switchToRegister').click(function (e) {
-            e.preventDefault();
-            $('#authModalTitle').text('Đăng Ký');
-            $('#authSubmit').text('Đăng Ký');
-            $('#confirmPasswordGroup').show();
-            $('#switchToRegister').parent().hide();
-            $('#backToLogin').show();
-        });
-
-        $('#backToLogin a').click(function (e) {
-            e.preventDefault();
-            $('#authModalTitle').text('Đăng Nhập');
-            $('#authSubmit').text('Đăng Nhập');
-            $('#confirmPasswordGroup').hide();
-            $('#switchToRegister').parent().show();
-            $('#backToLogin').hide();
-        });
-
-        $('#authForm').submit(function (e) {
-            e.preventDefault();
-            const email = $('#authEmail').val().trim();
-            const password = $('#authPassword').val();
-            const isRegister = $('#authSubmit').text() === 'Đăng Ký';
-
-            if (isRegister) {
-                const confirmPass = $('#authConfirmPassword').val();
-                if (password !== confirmPass) {
-                    alert('Mật khẩu nhập lại không khớp!');
-                    return;
-                }
-                // Lưu tài khoản mới
-                const users = JSON.parse(localStorage.getItem('users')) || [];
-                if (users.find(u => u.email === email)) {
-                    alert('Email đã được đăng ký!');
-                    return;
-                }
-                users.push({ email, password, name: email.split('@')[0] });
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('Đăng ký thành công! Vui lòng đăng nhập.');
-                $('#backToLogin a').click();
-            } else {
-                // Đăng nhập
-                const users = JSON.parse(localStorage.getItem('users')) || [];
-                const user = users.find(u => u.email === email && u.password === password);
-                if (user) {
-                    currentUser = { email: user.email, name: user.name };
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                    updateAuthUI();
-                    $('#authModal').modal('hide');
-                    alert('Đăng nhập thành công!');
-                } else {
-                    alert('Email hoặc mật khẩu không đúng!');
-                }
-            }
-        });
-
-        // ====================== GIỎ HÀNG & THANH TOÁN ======================
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
-            saveCart();
-            alert('Đã thêm ' + product.title + ' vào giỏ hàng!');
-        }
-
-        $('#cartBtn').click(function () {
+        // Hiển thị giỏ hàng
+        $('#cartBtn').click(function() {
             const cartItems = $('#cartItems');
             cartItems.empty();
             let total = 0;
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
                 const li = `<li class="list-group-item d-flex justify-content-between align-items-center">
-                    ${item.title} - ${item.price.toLocaleString()} VND
-                    <button class="btn btn-sm btn-danger remove-item" data-index="${index}">Xóa</button>
-                </li>`;
+                ${item.title} - ${item.price.toLocaleString()} VND
+            </li>`;
                 cartItems.append(li);
                 total += item.price;
             });
             $('#totalPrice').text(total.toLocaleString());
-
-            // Nút thanh toán
-            $('.modal-footer .btn-primary').off().text(currentUser ? 'Thanh Toán' : 'Đăng nhập để thanh toán')
-                .attr('id', currentUser ? '' : 'loginToCheckout');
-
             $('#cartModal').modal('show');
         });
 
-        // Xóa sản phẩm khỏi giỏ
-        $(document).on('click', '.remove-item', function () {
-            const index = $(this).data('index');
-            cart.splice(index, 1);
-            saveCart();
-            $('#cartBtn').click(); // refresh modal
+        // Xử lý form liên hệ
+        $('#contactForm').submit(function(e) {
+            e.preventDefault();
+            const name = $('#name').val();
+            const email = $('#email').val();
+            const message = $('#message').val();
+            alert(`Cảm ơn ${name}! Tin nhắn của bạn đã được gửi. Chúng tôi sẽ liên hệ qua ${email} sớm nhất có thể.`);
+            $('#contactForm')[0].reset();
         });
-
-        // Nút thanh toán trong giỏ hàng
-        $(document).on('click', '.modal-footer .btn-primary', function () {
-            if (!currentUser) {
-                $('#cartModal').modal('hide');
-                $('#authModal').modal('show');
-                return;
-            }
-            if (cart.length === 0) {
-                alert('Giỏ hàng trống!');
-                return;
-            }
-            // Mở modal thanh toán
-            $('#checkoutItems').empty();
-            let total = 0;
-            cart.forEach(item => {
-                $('#checkoutItems').append(`<li class="list-group-item">${item.title} - ${item.price.toLocaleString()} VND</li>`);
-                total += item.price;
-            });
-            $('#checkoutTotal').text(total.toLocaleString());
-            $('#checkoutModal').modal('show');
-            $('#cartModal').modal('hide');
-        });
-
-        // Hiển thị thông tin chuyển khoản
-        $('input[name="paymentMethod"]').change(function () {
-            $('#bankInfo').toggle(this.value === 'bank');
-        });
-
-        // Xác nhận đơn hàng
-        $('#confirmCheckout').click(function () {
-            if (!$('#checkoutName').val() || !$('#checkoutPhone').val() || !$('#checkoutAddress').val()) {
-                alert('Vui lòng điền đầy đủ thông tin!');
-                return;
-            }
-
-            const method = $('input[name="paymentMethod"]:checked').val();
-            alert(`Cảm ơn ${currentUser.name}!\nĐơn hàng đã được đặt thành công.\nPhương thức: ${method === 'cod' ? 'Thanh toán khi nhận hàng' : 'Chuyển khoản ngân hàng'}\nTổng tiền: ${$('#checkoutTotal').text()} VND`);
-
-            // Xóa giỏ hàng sau khi đặt thành công
-            cart = [];
-            saveCart();
-            $('#checkoutModal').modal('hide');
-        });
-
-        // Các hàm cũ: displayProducts, phân trang, lọc, modal chi tiết... (giữ nguyên như code gốc của bạn)
-        // ... (copy toàn bộ JS hiển thị sản phẩm từ code cũ vào đây)
 
         // Khởi tạo
-        $(document).ready(function () {
-            updateAuthUI();
-            updateCartCount();
+        $(document).ready(function() {
             displayProducts(currentPage, currentCategory);
             $('.filter-btn[data-category="all"]').addClass('active');
         });
     </script>
+
 </body>
 
 </html>
